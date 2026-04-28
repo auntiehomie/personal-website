@@ -1,0 +1,103 @@
+---
+import Base from "@/layouts/Base.astro";
+
+const projects = [
+  {
+    name: "BankBud",
+    url: "https://github.com/auntiehomie/bankbud",
+    description:
+      "Personal finance + banking intelligence tool. Tracks rates, news, and chat-based analysis.",
+    status: "Active",
+    tags: ["TypeScript", "Finance", "AI"],
+  },
+  {
+    name: "Liquidation Bot",
+    url: "https://github.com/auntiehomie/liquidation-bot",
+    description:
+      "On-chain DeFi liquidation monitor. Tracks borrowers, evaluates liquidation opportunities, and executes on-chain.",
+    status: "Active",
+    tags: ["Solidity", "DeFi", "TypeScript"],
+  },
+  {
+    name: "Meteora LP Bot",
+    url: "https://github.com/auntiehomie/meteora-lp-bot",
+    description:
+      "Automated liquidity provision bot for Meteora AMMs on Solana. Handles rebalancing and position management.",
+    status: "Active",
+    tags: ["Solana", "DeFi", "TypeScript"],
+  },
+  {
+    name: "Solana Arb Bot",
+    url: "https://github.com/auntiehomie/solana-arb-bot",
+    description:
+      "Research project exploring fee-efficient arbitrage strategies across Solana DEX pairs.",
+    status: "Research",
+    tags: ["Solana", "DeFi", "Arbitrage"],
+  },
+  {
+    name: "adaniels.xyz",
+    url: "https://github.com/auntiehomie/personal-website",
+    description: "This site. Built with Astro and TailwindCSS.",
+    status: "Active",
+    tags: ["Astro", "TailwindCSS", "Web"],
+  },
+];
+---
+
+<Base
+  title="Projects"
+  meta_title="Projects — adaniels.xyz"
+  description="Things I'm building."
+>
+  <section class="section">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-10">
+          <h1 class="mb-4">Projects</h1>
+          <p class="mb-12 text-lg">
+            Things I build, experiment with, and occasionally finish.
+          </p>
+          <div class="row">
+            {
+              projects.map((project) => (
+                <div class="md:col-6 mb-8">
+                  <div class="border border-border rounded-lg p-6 h-full flex flex-col">
+                    <div class="flex items-start justify-between mb-3">
+                      <h3 class="h5 mb-0">
+                        <a
+                          href={project.url}
+                          target="_blank"
+                          rel="noopener"
+                          class="hover:text-primary"
+                        >
+                          {project.name}
+                        </a>
+                      </h3>
+                      <span
+                        class={`text-xs px-2 py-1 rounded-full ml-3 flex-shrink-0 ${
+                          project.status === "Active"
+                            ? "bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300"
+                            : "bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-300"
+                        }`}
+                      >
+                        {project.status}
+                      </span>
+                    </div>
+                    <p class="text-sm mb-4 flex-grow">{project.description}</p>
+                    <div class="flex flex-wrap gap-2">
+                      {project.tags.map((tag) => (
+                        <span class="text-xs px-2 py-1 bg-theme-light dark:bg-darkmode-theme-light rounded">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
