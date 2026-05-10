@@ -1,0 +1,44 @@
+[
+  {
+    "title": "The Pragmatic Programmer",
+    "author": "David Thomas & Andrew Hunt",
+    "date_read": "2024-03",
+    "rating": 5,
+    "notes": "A foundational read. The advice on orthogonality, DRY, and tracer bullets still holds up decades later."
+  },
+  {
+    "title": "Zero to One",
+    "author": "Peter Thiel",
+    "date_read": "2024-06",
+    "rating": 4,
+    "notes": "Thought-provoking take on startups and monopoly theory. Best read as a set of contrarian questions to ask yourself."
+  },
+  {
+    "title": "The Rust Programming Language",
+    "author": "Steve Klabnik & Carol Nichols",
+    "date_read": "2024-09",
+    "rating": 5,
+    "notes": "The best language book I've read. Ownership and borrowing finally clicked here."
+  },
+  {
+    "title": "Designing Data-Intensive Applications",
+    "author": "Martin Kleppmann",
+    "date_read": "2025-01",
+    "rating": 5,
+    "notes": "Essential for anyone building systems at scale. The chapters on replication and consensus are worth reading twice."
+  },
+  {
+    "title": "Flash Boys",
+    "author": "Michael Lewis",
+    "date_read": "2025-03",
+    "rating": 4,
+    "notes": "A great primer on HFT and market microstructure, told as a thriller. Directly relevant to thinking about on-chain MEV."
+  },
+  {
+    "title": "The Innovator's Dilemma",
+    "author": "Clayton Christensen",
+    "date_read": "2025-04",
+    "rating": 4,
+    "notes": "Explains why good companies fail. The disruption framework is a useful lens for evaluating crypto vs. tradfi."
+  }
+]

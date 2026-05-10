@@ -1,7 +1,7 @@
 ---
 title: "Authors"
 meta_title: ""
-description: "this is meta description"
+description: ""
 image: ""
-draft: false
+draft: true
 ---

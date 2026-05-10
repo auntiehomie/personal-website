@@ -1,23 +1,33 @@
 ---
-title: "How to build an Application with modern Technology"
-meta_title: ""
-description: "this is meta description"
-date: 2022-04-04T05:00:00Z
+title: "What I Track in BankBud (And Why)"
+meta_title: "What I Track in BankBud (And Why)"
+description: "BankBud started as a rate tracker. Here's what it's become and what problems it actually solves."
+date: 2025-02-10T00:00:00Z
 image: "/images/image-placeholder.png"
-categories: ["Architecture"]
-author: "John Doe"
-tags: ["silicon", "technology"]
+categories: ["Finance", "Tools"]
+author: "auntiehomie"
+tags: ["bankbud", "finance", "tools"]
 draft: false
 ---
 
-Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
+BankBud started because I was tired of manually checking HYSA rates every few weeks to see if my bank had quietly dropped below better alternatives.
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
+That's still in there. But the project grew.
 
-## Creative Design
+## What It Tracks
 
-Nam ut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
+- **Savings rates** — live APY data from major HYSAs and CDs, refreshed daily
+- **Rate news** — Fed announcements, rate change signals, bank-specific updates
+- **Chat interface** — ask it questions like "is my bank still competitive?" and get a direct answer with citations
 
-> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
+## Why Chat
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
+The insight was that the raw data isn't the hard part. The analysis is. "Should I move my savings account?" is a question that requires knowing current rates, where you are now, and whether the spread justifies the friction of switching.
+
+The chat layer wraps the data in enough context to give you a real answer, not just a table to interpret yourself.
+
+## What's Next
+
+I want to add CD ladder modeling — given a target duration and amount, what's the optimal ladder structure across currently available CDs. It's a solved problem mathematically but most tools don't surface it well.
+
+[BankBud on GitHub](https://github.com/auntiehomie/bankbud)

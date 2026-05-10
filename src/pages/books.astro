@@ -1,0 +1,62 @@
+---
+import Base from "@/layouts/Base.astro";
+import books from "@/data/books.json";
+
+// Sort by date_read descending (most recent first)
+const sorted = [...books].sort((a, b) => {
+  return b.date_read.localeCompare(a.date_read);
+});
+
+function stars(rating: number) {
+  return "★".repeat(rating) + "☆".repeat(5 - rating);
+}
+
+function formatDate(d: string) {
+  const [year, month] = d.split("-");
+  const date = new Date(parseInt(year), parseInt(month) - 1, 1);
+  return date.toLocaleDateString("en-US", { year: "numeric", month: "long" });
+}
+---
+
+<Base
+  title="Reading List"
+  meta_title="Reading List — adaniels.xyz"
+  description="Books I've read — notes and ratings."
+>
+  <section class="section">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-8">
+          <h1 class="mb-4">Reading List</h1>
+          <p class="mb-12 text-lg">
+            Books I've read, with honest ratings and a note on what stuck.
+          </p>
+
+          <div class="space-y-8">
+            {
+              sorted.map((book) => (
+                <div class="border border-border rounded-lg p-6">
+                  <div class="flex items-start justify-between gap-4 mb-2">
+                    <div>
+                      <h2 class="h5 mb-0">{book.title}</h2>
+                      <p class="text-sm text-muted">{book.author}</p>
+                    </div>
+                    <div class="flex-shrink-0 text-right">
+                      <div class="text-yellow-400 text-lg leading-none" aria-label={`${book.rating} out of 5 stars`}>
+                        {stars(book.rating)}
+                      </div>
+                      <p class="text-xs text-muted mt-1">{formatDate(book.date_read)}</p>
+                    </div>
+                  </div>
+                  {book.notes && (
+                    <p class="text-sm mt-3 text-body">{book.notes}</p>
+                  )}
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
