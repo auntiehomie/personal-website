@@ -1,7 +1,7 @@
 ---
 # Banner
 banner:
-  title: "Hi, I'm **auntiehomie**."
+  title: "Hi, I'm **Amanda**."
   content: "I build things on the internet — bots, tools, and whatever seems interesting. Mostly TypeScript and DeFi these days."
   image: "/images/banner.png"
   button:

@@ -8,7 +8,7 @@ updated: 2026-04-28
 
 - [ ] - Deploy and publish (verify adaniels.xyz live after Netlify deploy)
 - [ ] - Add real personal content to resume (work history, projects detail)
-- [ ] - Add actual profile photo / avatar to replace placeholder
+- [x] - Add actual profile photo / avatar to replace placeholder [done::2026-05-11]
 
 ## In Progress
 

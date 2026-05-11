@@ -5,7 +5,7 @@ description: "After years of over-engineered personal sites, Astro finally felt 
 date: 2025-03-01T00:00:00Z
 image: "/images/image-placeholder.png"
 categories: ["Web", "Tools"]
-author: "auntiehomie"
+author: "Amanda"
 tags: ["astro", "web", "performance"]
 draft: false
 ---

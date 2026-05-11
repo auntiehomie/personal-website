@@ -5,7 +5,7 @@ description: "What I learned building a liquidation monitor that watches borrowe
 date: 2025-04-15T00:00:00Z
 image: "/images/image-placeholder.png"
 categories: ["DeFi", "Solana"]
-author: "auntiehomie"
+author: "Amanda"
 tags: ["solana", "defi", "typescript", "bots"]
 draft: false
 ---

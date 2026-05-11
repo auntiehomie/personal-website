@@ -5,7 +5,7 @@ description: "A quick breakdown of how miner/validator extractable value works d
 date: 2025-05-01T00:00:00Z
 image: "/images/image-placeholder.png"
 categories: ["DeFi", "Solana"]
-author: "auntiehomie"
+author: "Amanda"
 tags: ["solana", "mev", "defi", "ethereum"]
 draft: false
 ---

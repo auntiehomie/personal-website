@@ -1,6 +1,6 @@
 ---
-title: "auntiehomie"
-meta_title: "auntiehomie"
+title: "Amanda"
+meta_title: "Amanda"
 description: "Builder, developer, creative."
 image: "/images/image-placeholder.png"
 social:

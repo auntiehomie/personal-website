@@ -5,7 +5,7 @@ description: "BankBud started as a rate tracker. Here's what it's become and wha
 date: 2025-02-10T00:00:00Z
 image: "/images/image-placeholder.png"
 categories: ["Finance", "Tools"]
-author: "auntiehomie"
+author: "Amanda"
 tags: ["bankbud", "finance", "tools"]
 draft: false
 ---
