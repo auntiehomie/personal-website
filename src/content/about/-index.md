@@ -2,7 +2,7 @@
 title: "Hey, I'm auntiehomie!"
 meta_title: "About"
 description: "Builder, developer, creative."
-image: "/images/image-placeholder.png"
+image: "/images/avatar.png"
 draft: false
 ---
 
