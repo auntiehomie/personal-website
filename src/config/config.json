@@ -5,11 +5,11 @@
     "base_path": "/",
     "trailing_slash": false,
     "favicon": "/images/favicon.png",
-    "logo": "/images/logo.png",
-    "logo_darkmode": "/images/logo-darkmode.png",
+    "logo": "",
+    "logo_darkmode": "",
     "logo_width": "150",
     "logo_height": "30",
-    "logo_text": "adaniels.xyz"
+    "logo_text": "Amanda's Portfolio"
   },
 
   "settings": {
