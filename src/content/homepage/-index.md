@@ -2,48 +2,48 @@
 # Banner
 banner:
   title: "Hi, I'm **Amanda**."
-  content: "I build things on the internet — bots, tools, and whatever seems interesting. Mostly TypeScript and DeFi these days."
+  content: "Banker by day, tinkerer by night. I work in financial services and spend my off-hours building bots, tools, and web apps — mostly in TypeScript and DeFi."
   image: "/images/banner.png"
   button:
     enable: true
-    label: "See my projects →"
-    link: "/projects"
+    label: "View my resume →"
+    link: "/resume"
 
 # Features
 features:
-  - title: "Building in DeFi & Finance"
+  - title: "Financial Services Professional"
     image: "/images/service-1.png"
-    content: "Currently focused on on-chain tooling and personal finance automation — things that make money smarter."
+    content: "I've spent 15+ years in banking and financial services — from sales associate to Assistant Branch Leader. I know how money moves, how compliance works, and how to build relationships that last."
+    bulletpoints:
+      - "Assistant Branch Leader at Flagstar Bank (2023–present)"
+      - "5+ years in management; 15+ years in sales & customer service"
+      - "Deep familiarity with lending, retail banking, and risk compliance"
+    button:
+      enable: true
+      label: "Full resume →"
+      link: "/resume"
+
+  - title: "Builder on the Side"
+    image: "/images/service-2.png"
+    content: "Outside of work, I build things — on-chain tooling, automation bots, and web apps. Most of it lives on GitHub and gets iterated on whenever time allows."
     bulletpoints:
       - "**BankBud** — chat-based banking intelligence and rate tracking"
-      - "**Liquidation Bot** — DeFi on-chain liquidation monitoring and execution"
+      - "**Liquidation Bot** — real-time DeFi on-chain monitoring"
       - "**Meteora LP Bot** — automated liquidity provision on Solana"
     button:
       enable: true
-      label: "See all projects"
+      label: "See all projects →"
       link: "/projects"
 
-  - title: "Open Source by Default"
-    image: "/images/service-2.png"
-    content: "Most of what I build ends up on GitHub. If it's useful, ship it."
+  - title: "Reading, writing, thinking"
+    image: "/images/service-3.png"
+    content: "Finance, crypto, AI, tools, and whatever rabbit hole I'm currently in. I keep a reading list and a knowledge base here."
     bulletpoints:
-      - "All active projects are public on GitHub"
-      - "Tools built for real use, not just demos"
-      - "Continuous iteration — commits at 2am are normal"
+      - "Reading list with honest ratings and notes"
+      - "Knowledge base — articles and links worth saving"
+      - "Blog when I have something to say"
     button:
       enable: true
-      label: "GitHub →"
-      link: "https://github.com/auntiehomie"
-
-  - title: "Always building something"
-    image: "/images/service-3.png"
-    content: "Research, bots, web apps, automation — whatever problem is interesting right now."
-    bulletpoints:
-      - "Solana arbitrage research"
-      - "Personal scheduling tools"
-      - "This site (yes, it's a project too)"
-    button:
-      enable: false
-      label: ""
-      link: ""
+      label: "Reading list →"
+      link: "/books"
 ---

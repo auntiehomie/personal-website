@@ -1,10 +1,10 @@
 ---
 enable: true
-title: "Let's build something"
+title: "Want to connect?"
 image: "/images/call-to-action.png"
-description: "Have an idea, a question, or just want to say hey? Find me on GitHub."
+description: "Whether it's banking, building, or something in between — find me on GitHub or check out my resume."
 button:
   enable: true
-  label: "GitHub →"
-  link: "https://github.com/auntiehomie"
+  label: "View resume →"
+  link: "/resume"
 ---
