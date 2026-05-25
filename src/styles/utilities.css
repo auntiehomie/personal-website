@@ -10,3 +10,9 @@
 @utility form-label {
   @apply mb-4 block font-secondary text-xl font-normal text-text-dark dark:text-darkmode-text-light;
 }
+
+/* Performance: defer rendering of below-fold page sections (modern-web-guidance) */
+@utility cv-section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
+}
