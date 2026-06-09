@@ -1,92 +1,21 @@
 ---
 import Base from "@/layouts/Base.astro";
+import { getCollection } from "astro:content";
 
-const entries = [
-  {
-    title: "Pentagon Disturbed as Its Fleet of Drones Is Left Bobbing in the Ocean When Elon Musk's Starlink Fails",
-    url: "https://futurism.com/space/pentagon-starlink-musk-drones",
-    source: "futurism.com",
-    tags: ["tech", "military"],
-    date: "",
-  },
-  {
-    title: "r/ClassActionSettlement — Getting Started",
-    url: "https://reddit.com/r/classactionsettlement/wiki/getting-started",
-    source: "reddit.com",
-    tags: ["legal"],
-    date: "",
-  },
-  {
-    title: "The Financial Product That Blew Up the Global Economy Is Back",
-    url: "https://newrepublic.com/article/209166/credit-default-swaps-financial-crisis",
-    source: "newrepublic.com",
-    tags: ["finance"],
-    date: "",
-  },
-  {
-    title: "How a quantum computer can be used to actually steal your bitcoin in '9 minutes'",
-    url: "https://www.coindesk.com/tech/2026/04/18/how-a-quantum-computer-can-be-used-to-actually-steal-your-bitcoin-in-9-minutes",
-    source: "coindesk.com",
-    tags: ["crypto", "quantum"],
-    date: "",
-  },
-  {
-    title: "I built my entire second brain inside VS Code and stopped switching apps entirely",
-    url: "https://flip.it/ZIaXsN",
-    source: "flip.it",
-    tags: ["productivity", "tools"],
-    date: "",
-  },
-  {
-    title: "FIP: Proof of Quality — Farcaster Discussion",
-    url: "https://github.com/orgs/farcasterorg/discussions/17",
-    source: "github.com",
-    tags: ["farcaster", "web3"],
-    date: "",
-  },
-  {
-    title: "Palantir employees are starting to wonder if they're the bad guys",
-    url: "https://www.wired.com/story/palantir-employees-are-starting-to-wonder-if-theyre-the-bad-guys/",
-    source: "wired.com",
-    tags: ["tech", "politics"],
-    date: "",
-  },
-  {
-    title: "Claude-powered AI coding agent deletes entire company database in 9 seconds",
-    url: "https://www.tomshardware.com/tech-industry/artificial-intelligence/claude-powered-ai-coding-agent-deletes-entire-company-database-in-9-seconds-backups-zapped-after-cursor-tool-powered-by-anthropics-claude-goes-rogue",
-    source: "tomshardware.com",
-    tags: ["ai", "tools"],
-    date: "",
-  },
-  {
-    title: "Claude is a space to think",
-    url: "https://www.anthropic.com/news/claude-is-a-space-to-think",
-    source: "anthropic.com",
-    tags: ["ai"],
-    date: "",
-  },
-  {
-    title: "Why TUIs are back",
-    url: "https://wiki.alcidesfonseca.com/blog/why-tuis-are-back/",
-    source: "alcidesfonseca.com",
-    tags: ["dev", "tools"],
-    date: "",
-  },
-  {
-    title: "Introduction — Electron",
-    url: "https://electronjs.org/docs/latest/",
-    source: "electronjs.org",
-    tags: ["dev"],
-    date: "",
-  },
-  {
-    title: "Elon Musk, Sam Altman and the world's billionaires are terrified of the Google AI genius behind a 25-year-old computer game",
-    url: "https://www.pcgamer.com/software/ai/elon-musk-sam-altman-and-the-worlds-billionaires-are-terrified-of-the-google-ai-genius-behind-a-25-year-old-computer-game-because-they-think-he-might-actually-end-up-controlling-god/",
-    source: "pcgamer.com",
-    tags: ["ai", "agi", "tech"],
-    date: "2026-05-14",
-  },
-];
+const allEntries = await getCollection("knowledgebase");
+
+// Filter out drafts
+const entries = allEntries
+  .filter((e) => e.data.draft !== true)
+  .map((e) => ({
+    title: e.data.title,
+    url: e.data.url,
+    source: e.data.source,
+    tags: e.data.tags,
+    date: e.data.date ? e.data.date.toISOString().split("T")[0] : "",
+    description: e.data.description,
+  }))
+  .sort((a, b) => b.date.localeCompare(a.date));
 
 // Collect all unique tags for filter UI
 const allTags = [...new Set(entries.flatMap((e) => e.tags))].sort();
@@ -105,6 +34,16 @@ const allTags = [...new Set(entries.flatMap((e) => e.tags))].sort();
           <p class="mb-8 text-lg">
             A running archive of articles, links, and things worth saving — spanning AI, crypto, finance, dev, and whatever else catches my attention.
           </p>
+
+          <!-- Search bar -->
+          <div class="mb-6">
+            <input
+              id="kb-search"
+              type="text"
+              placeholder="Search entries..."
+              class="w-full px-4 py-2 rounded-lg border border-border bg-body dark:bg-darkmode-body focus:outline-none focus:border-primary transition-colors"
+            />
+          </div>
 
           <!-- Tag filters -->
           <div class="flex flex-wrap gap-2 mb-10" id="tag-filters">
@@ -133,6 +72,8 @@ const allTags = [...new Set(entries.flatMap((e) => e.tags))].sort();
                 <div
                   class="kb-entry border border-border rounded-lg p-5 hover:border-primary transition-colors"
                   data-tags={entry.tags.join(",")}
+                  data-title={entry.title.toLowerCase()}
+                  data-source={entry.source.toLowerCase()}
                 >
                   <a
                     href={entry.url}
@@ -159,6 +100,11 @@ const allTags = [...new Set(entries.flatMap((e) => e.tags))].sort();
               ))
             }
           </div>
+
+          <!-- Empty state -->
+          <div id="kb-empty" class="hidden text-center py-12 text-muted">
+            <p>No entries match your search or filter.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -168,10 +114,40 @@ const allTags = [...new Set(entries.flatMap((e) => e.tags))].sort();
 <script>
   const buttons = document.querySelectorAll<HTMLButtonElement>(".tag-btn");
   const entries = document.querySelectorAll<HTMLElement>(".kb-entry");
+  const searchInput = document.getElementById("kb-search") as HTMLInputElement;
+  const emptyState = document.getElementById("kb-empty") as HTMLElement;
+  let activeTag = "all";
+  let searchQuery = "";
 
+  function filterEntries() {
+    let visibleCount = 0;
+
+    entries.forEach((entry) => {
+      const tags = (entry.dataset.tags ?? "").split(",");
+      const title = (entry.dataset.title ?? "");
+      const source = (entry.dataset.source ?? "");
+      const q = searchQuery.toLowerCase();
+
+      const matchesTag = activeTag === "all" || tags.includes(activeTag);
+      const matchesSearch =
+        q === "" || title.includes(q) || source.includes(q) || tags.some((t) => t.includes(q));
+
+      if (matchesTag && matchesSearch) {
+        entry.style.display = "";
+        visibleCount++;
+      } else {
+        entry.style.display = "none";
+      }
+    });
+
+    emptyState.classList.toggle("hidden", visibleCount > 0);
+  }
+
+  // Tag filter clicks
   buttons.forEach((btn) => {
     btn.addEventListener("click", () => {
       const tag = btn.dataset.tag ?? "all";
+      activeTag = tag;
 
       // Update button styles
       buttons.forEach((b) => {
@@ -181,15 +157,13 @@ const allTags = [...new Set(entries.flatMap((e) => e.tags))].sort();
       btn.classList.add("bg-primary", "text-white", "border-primary");
       btn.classList.remove("border-border");
 
-      // Filter entries
-      entries.forEach((entry) => {
-        const tags = (entry.dataset.tags ?? "").split(",");
-        if (tag === "all" || tags.includes(tag)) {
-          entry.style.display = "";
-        } else {
-          entry.style.display = "none";
-        }
-      });
+      filterEntries();
     });
+  });
+
+  // Text search
+  searchInput?.addEventListener("input", () => {
+    searchQuery = searchInput.value;
+    filterEntries();
   });
 </script>

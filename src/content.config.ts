@@ -143,6 +143,21 @@ const testimonialSectionCollection = defineCollection({
   }),
 });
 
+// Knowledgebase collection schema (curated articles and links)
+const knowledgebaseCollection = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/knowledgebase" }),
+  schema: z.object({
+    title: z.string(),
+    url: z.string(),
+    source: z.string(),
+    tags: z.array(z.string()).default(() => []),
+    date: z.coerce.date().optional(),
+    category: z.string().default("other"),
+    description: z.string().default(""),
+    draft: z.boolean().optional(),
+  }),
+});
+
 // Export collections
 export const collections = {
   // Pages
@@ -156,4 +171,7 @@ export const collections = {
   // sections
   ctaSection: ctaSectionCollection,
   testimonialSection: testimonialSectionCollection,
+
+  // knowledgebase
+  knowledgebase: knowledgebaseCollection,
 };
