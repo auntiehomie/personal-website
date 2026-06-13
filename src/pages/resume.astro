@@ -1,6 +1,65 @@
 ---
 import Base from "@/layouts/Base.astro";
+import config from "@/config/config.json";
 ---
+
+<!-- JSON-LD ItemList for resume work history -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Work Experience",
+  "description": "Professional experience of Amanda Daniels",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "OrganizationRole",
+        "roleName": "Assistant Branch Leader",
+        "startDate": "2023-08",
+        "endDate": "Present",
+        "memberOf": { "@type": "Organization", "name": "Flagstar Bank" },
+        "location": { "@type": "Place", "address": { "@type": "PostalAddress", "addressLocality": "Farmington Hills", "addressRegion": "MI" } }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@type": "OrganizationRole",
+        "roleName": "Relationship Banker",
+        "startDate": "2019-03",
+        "endDate": "2023-08",
+        "memberOf": { "@type": "Organization", "name": "Flagstar Bank" },
+        "location": { "@type": "Place", "address": { "@type": "PostalAddress", "addressLocality": "Farmington Hills", "addressRegion": "MI" } }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "item": {
+        "@type": "OrganizationRole",
+        "roleName": "Personal Banker",
+        "startDate": "2015-10",
+        "endDate": "2019-01",
+        "memberOf": { "@type": "Organization", "name": "Fifth Third Bank" },
+        "location": { "@type": "Place", "address": { "@type": "PostalAddress", "addressLocality": "West Bloomfield", "addressRegion": "MI" } }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "item": {
+        "@type": "OrganizationRole",
+        "roleName": "Store Manager",
+        "startDate": "2011-06",
+        "endDate": "2015-10",
+        "memberOf": { "@type": "Organization", "name": "RadioShack" },
+        "location": { "@type": "Place", "address": { "@type": "PostalAddress", "addressLocality": "Waterford", "addressRegion": "MI" } }
+      }
+    }
+  ]
+})} />
 
 <Base
   title="Resume"

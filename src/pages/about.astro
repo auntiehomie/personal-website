@@ -4,6 +4,7 @@ import Base from "@/layouts/Base.astro";
 import { getListPage } from "@/lib/contentParser.astro";
 import { markdownify } from "@/lib/utils/textConverter";
 import { render } from "astro:content";
+import config from "@/config/config.json";
 
 const aboutIndex = await getListPage("about", "-index");
 const { Content } = await render(aboutIndex);
@@ -20,6 +21,24 @@ if (aboutIndex.data.draft) {
   description={description}
   image={image}
 >
+  <!-- JSON-LD Person schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Amanda Daniels",
+    "url": `${config.site.base_url}/about`,
+    "image": image ? `${config.site.base_url}${image}` : undefined,
+    "description": description,
+    "sameAs": [
+      "https://github.com/auntiehomie"
+    ],
+    "knowsAbout": [
+      "DeFi", "Blockchain", "Software Development",
+      "Solana", "Ethereum", "Personal Finance",
+      "Banking", "Web Development"
+    ]
+  })} />
+
   <section class="section-sm">
     <div class="container">
       <div class="row justify-center">

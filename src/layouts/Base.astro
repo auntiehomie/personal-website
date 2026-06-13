@@ -153,6 +153,26 @@ const { title, meta_title, description, image, noindex, canonical } =
       }`}
     />
     <meta name="twitter:card" content="summary_large_image" />
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": config.site.title,
+    "url": config.site.base_url,
+    "description": plainify(description ? description : config.metadata.meta_description),
+    "author": {
+      "@type": "Person",
+      "name": config.metadata.meta_author
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": `${config.site.base_url}/knowledgebase?q={search_term_string}`
+      },
+      "query-input": "required name=search_term_string"
+    }
+  })} />
   </head>
   <body class="flex flex-col min-h-screen">
     {/* google tag manager noscript */}

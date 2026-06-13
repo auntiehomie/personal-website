@@ -74,6 +74,7 @@ const allTags = [...new Set(entries.flatMap((e) => e.tags))].sort();
                   data-tags={entry.tags.join(",")}
                   data-title={entry.title.toLowerCase()}
                   data-source={entry.source.toLowerCase()}
+                  data-description={entry.description.toLowerCase()}
                 >
                   <a
                     href={entry.url}
@@ -129,8 +130,9 @@ const allTags = [...new Set(entries.flatMap((e) => e.tags))].sort();
       const q = searchQuery.toLowerCase();
 
       const matchesTag = activeTag === "all" || tags.includes(activeTag);
+      const description = (entry.dataset.description ?? "");
       const matchesSearch =
-        q === "" || title.includes(q) || source.includes(q) || tags.some((t) => t.includes(q));
+        q === "" || title.includes(q) || source.includes(q) || description.includes(q) || tags.some((t) => t.includes(q));
 
       if (matchesTag && matchesSearch) {
         entry.style.display = "";
