@@ -1,0 +1,99 @@
+---
+import Base from "@/layouts/Base.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("knowledgebase");
+  return entries
+    .filter((e) => e.data.draft !== true)
+    .map((e) => ({
+      params: { slug: e.id.replace(".mdx", "") },
+      props: { entry: e },
+    }));
+}
+
+const { entry } = Astro.props;
+const { data } = entry;
+
+const formattedDate = data.date
+  ? data.date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    })
+  : null;
+---
+
+<Base
+  title={data.title}
+  meta_title={`${data.title} — Knowledge Base — adaniels.xyz`}
+  description={data.description || `Knowledge base entry from ${data.source}`}
+>
+  <section class="section">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-8">
+          <!-- Breadcrumb / back link -->
+          <nav class="mb-6 text-sm text-muted">
+            <a
+              href="/knowledgebase"
+              class="hover:text-primary transition-colors"
+            >
+              ← Back to Knowledge Base
+            </a>
+          </nav>
+
+          <!-- Title -->
+          <h1 class="mb-4">{data.title}</h1>
+
+          <!-- Metadata bar -->
+          <div class="flex flex-wrap items-center gap-3 mb-6 pb-4 border-b border-border">
+            <span class="text-sm text-muted">{data.source}</span>
+            {formattedDate && (
+              <span class="text-sm text-muted">· {formattedDate}</span>
+            )}
+            {data.tags.length > 0 && (
+              <div class="flex flex-wrap gap-1 ml-auto">
+                {data.tags.map((tag: string) => (
+                  <span class="px-2 py-0.5 rounded-full text-xs bg-theme-light dark:bg-darkmode-theme-light text-muted">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <!-- Description / summary -->
+          {data.description && (
+            <div class="prose dark:prose-invert max-w-none mb-8">
+              <p>{data.description}</p>
+            </div>
+          )}
+
+          <!-- Link to original -->
+          <a
+            href={data.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-primary text-white font-medium hover:opacity-90 transition-opacity"
+          >
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+              />
+            </svg>
+            Read full article on {data.source}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
