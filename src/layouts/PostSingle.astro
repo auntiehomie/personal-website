@@ -9,6 +9,7 @@ import { humanize, markdownify, slugify } from "@/lib/utils/textConverter";
 import { render } from "astro:content";
 import { FaRegClock, FaRegFolder, FaRegUserCircle } from "react-icons/fa";
 import ImageMod from "./components/ImageMod.astro";
+import config from "@/config/config.json";
 
 const COLLECTION_FOLDER = "blog";
 const { post } = Astro.props;
@@ -61,6 +62,23 @@ const { title, description, author, categories, image, date, tags } = post.data;
             {dateFormat(date)}
           </li>
         </ul>
+        <!-- JSON-LD Article Schema -->
+        <script type="application/ld+json" set:html={JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": title,
+          "description": description,
+          "author": {
+            "@type": "Person",
+            "name": author || config.metadata.meta_author
+          },
+          "datePublished": date ? date.toISOString() : undefined,
+          "image": image ? `${config.site.base_url}${image}` : undefined,
+          "url": `${config.site.base_url}/blog/${post.id}`,
+          "keywords": tags?.join(", "),
+          "articleSection": categories?.join(", ")
+        })} />
+
         <div class="content mb-10">
           <Content />
         </div>
