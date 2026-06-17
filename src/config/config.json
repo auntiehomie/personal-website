@@ -44,6 +44,13 @@
     "gtm_id": "GTM-XXXXXX"
   },
 
+  "plausible": {
+    "enable": true,
+    "domain": "adaniels.xyz",
+    "script_url": "https://plausible.io/js/script.js",
+    "data_api": "https://plausible.io/api/event"
+  },
+
   "disqus": {
     "enable": false,
     "shortname": "themefisher-template",
