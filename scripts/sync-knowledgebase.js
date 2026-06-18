@@ -36,6 +36,11 @@ function extractSourceName(url) {
   }
 }
 
+/** Strip UTM tracking params from a URL for dedup matching */
+function stripTracking(url) {
+  return url.replace(/[?&]utm_[^&]+/g, '').replace(/\?$/, '');
+}
+
 function guessCategory(tags) {
   const categoryMap = {
     ai: 'ai',
@@ -92,7 +97,9 @@ function indexExistingMDX(dir) {
     const content = readFileSync(resolve(dir, file), 'utf-8');
     const urlMatch = content.match(/^url:\s*"([^"]+)"/m);
     if (urlMatch) {
-      byUrl.set(urlMatch[1], { filename: file, content });
+      // Strip tracking params for matching so utm/tracking URLs don't create duplicates
+    const cleanUrl = stripTracking(urlMatch[1]);
+    byUrl.set(cleanUrl, { filename: file, content });
     }
   }
   return byUrl;
@@ -217,7 +224,9 @@ function sync() {
 
   for (const entry of entries) {
     // Check if we already have this URL
-    const existing = existingByUrl.get(entry.url);
+    // Normalize entry URL for lookup (strip tracking params)
+    const entryUrlClean = stripTracking(entry.url);
+    const existing = existingByUrl.get(entryUrlClean);
 
     const { slug, content: mdx } = generateMDX(entry);
 
