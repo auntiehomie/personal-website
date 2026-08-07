@@ -3,36 +3,60 @@ import Base from "@/layouts/Base.astro";
 
 const projects = [
   {
+    name: "Homiehouse",
+    url: "https://github.com/auntiehomie/homiehouse",
+    description:
+      "Farcaster client with AI-powered learning hub, feed curation, and progressive difficulty levels. Next.js 14 + Vercel + Neon DB.",
+    status: "Active",
+    tags: ["Next.js", "Farcaster", "AI", "Web3"],
+  },
+  {
+    name: "Prospect Project Homie",
+    url: "https://github.com/auntiehomie/prospectprojecthomie",
+    description:
+      "Branch-leader prospecting toolkit: public-source discovery, qualification gates, evidence quality controls, and compliant email outreach.",
+    status: "Active",
+    tags: ["Next.js", "TypeScript", "Banking", "CSV"],
+  },
+  {
     name: "BankBud",
     url: "https://github.com/auntiehomie/bankbud",
     description:
-      "Personal finance + banking intelligence tool. Tracks rates, news, and chat-based analysis.",
+      "AI personal finance app with bank rate scraping, MongoDB-backed rate comparison, chat analysis, and location-based recommendations.",
     status: "Active",
-    tags: ["TypeScript", "Finance", "AI"],
+    tags: ["TypeScript", "MongoDB", "AI", "Finance"],
   },
   {
     name: "Liquidation Bot",
     url: "https://github.com/auntiehomie/liquidation-bot",
     description:
-      "On-chain DeFi liquidation monitor. Tracks borrowers, evaluates liquidation opportunities, and executes on-chain.",
+      "Arbitrum DeFi liquidation bot with Next.js monitoring dashboard. Aave v3 integration, P&L tracking, wallet top-up alerts.",
     status: "Active",
-    tags: ["Solidity", "DeFi", "TypeScript"],
-  },
-  {
-    name: "Meteora LP Bot",
-    url: "https://github.com/auntiehomie/meteora-lp-bot",
-    description:
-      "Automated liquidity provision bot for Meteora AMMs on Solana. Handles rebalancing and position management.",
-    status: "Active",
-    tags: ["Solana", "DeFi", "TypeScript"],
+    tags: ["TypeScript", "DeFi", "Aave", "Arbitrum"],
   },
   {
     name: "Solana Arb Bot",
     url: "https://github.com/auntiehomie/solana-arb-bot",
     description:
-      "Research project exploring fee-efficient arbitrage strategies across Solana DEX pairs.",
+      "Solana arbitrage research project. Jupiter API + Helius + Jito. Rust migration planned for sub-ms execution.",
     status: "Research",
-    tags: ["Solana", "DeFi", "Arbitrage"],
+    tags: ["Solana", "DeFi", "Rust", "Arbitrage"],
+  },
+  {
+    name: "Meteora LP Bot",
+    url: "https://github.com/auntiehomie/meteora-lp-bot",
+    description:
+      "Solana LP auto-rebalancer for Meteora DLMM pools. SDK-based position management.",
+    status: "Paused",
+    tags: ["Solana", "DeFi", "TypeScript"],
+  },
+  {
+    name: "Howdy Morning",
+    url: "https://github.com/auntiehomie/howdy-morning",
+    description:
+      "Morning routine + health app with Oura API integration, LLM scheduling, and habit tracking.",
+    status: "Active",
+    tags: ["Next.js", "Supabase", "Health", "AI"],
   },
   {
     name: "adaniels.xyz",
