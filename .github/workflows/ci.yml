@@ -24,18 +24,6 @@ jobs:
       - name: Build (Astro)
         run: npm run build --if-present
       - name: Lint
-        run: |
-          if npm run lint --if-present 2>&1 | grep -q "missing script"; then
-            echo "No lint script, skipping"
-          else
-            npm run lint
-          fi
+        run: npm run lint --if-present
       - name: Test
-        run: |
-          if npm run test --if-present 2>&1 | grep -q "missing script"; then
-            echo "No test script, skipping"
-          else
-            npm test
-          fi
-EOF
-echo "Updated personal-website CI"
+        run: npm test --if-present
