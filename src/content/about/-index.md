@@ -10,8 +10,7 @@ I build things on the internet — bots, financial tools, web apps, and the occa
 
 Currently working on:
 - **BankBud** — a personal finance + banking intelligence tool
-- **Liquidation-bot** — on-chain liquidation monitor for DeFi
-- **Meteora LP Bot** — automated liquidity provision on Solana
+- **Howdy Morning** — morning routine + health tracking with Oura API
 - **This website** — you're looking at it
 
 I write code, think about systems, and occasionally commit to things at 2am.

@@ -10,4 +10,4 @@ social:
 draft: false
 ---
 
-Builder of bots, tools, and the occasional weird experiment. Working on BankBud, liquidation infrastructure, and Solana DeFi tooling.
+Builder of bots, tools, and the occasional weird experiment. Working on BankBud, Howdy Morning, and Homiehouse.

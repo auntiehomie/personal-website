@@ -28,8 +28,7 @@ features:
     content: "Outside of work, I build things — on-chain tooling, automation bots, and web apps. Most of it lives on GitHub and gets iterated on whenever time allows."
     bulletpoints:
       - "**BankBud** — chat-based banking intelligence and rate tracking"
-      - "**Liquidation Bot** — real-time DeFi on-chain monitoring"
-      - "**Meteora LP Bot** — automated liquidity provision on Solana"
+      - "**Howdy Morning** — morning routine + health tracking with Oura API"
     button:
       enable: true
       label: "See all projects →"

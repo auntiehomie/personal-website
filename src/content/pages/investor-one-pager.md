@@ -23,7 +23,7 @@ draft: false
 
 **The next 100 million crypto users won't come from better L2s or faster consensus. They'll come from products that bridge TradFi and DeFi without asking users to learn crypto first.**
 
-Amanda occupies a rare intersection: deep traditional banking experience + real DeFi building. The portfolio is designed to capture users at every stage of the TradFi-to-DeFi transition — from comparing bank rates (BankBud) to managing crypto assets (Liquidation Bot, Meteora LP Bot) to social discovery of web3 (Homiehouse).
+Amanda occupies a rare intersection: deep traditional banking experience + real fintech building. The portfolio is designed to capture users at every stage of the TradFi-to-fintech transition — from comparing bank rates (BankBud) to social discovery of web3 (Homiehouse).
 
 ---
 
@@ -42,23 +42,11 @@ Amanda occupies a rare intersection: deep traditional banking experience + real 
 - **Key traction:** 500 error investigated and diagnosed, migrated from Neynar to open infrastructure
 - **Why it matters:** Onboarding crypto-curious users into social web3 without jargon
 
-### Liquidation Bot — Automated Aave V3 Liquidations
-- **Status:** Operational on Arbitrum / Seeking Funding
-- **What it does:** Monitors Aave V3 borrower positions, executes liquidations with flash loan support
-- **Key traction:** Flash loans wired (via Balancer V2), 135 unit tests passing, 24%+ capital efficiency gains
-- **Monetization path:** SaaS tiers ($99–$499/mo), pooled capital vaults, white-label licensing ($15k–$50k)
-
-### Meteora LP Bot — Automated DLMM Rebalancing
-- **Status:** Operational on Solana / Beta
-- **What it does:** Auto-rebalances Meteora DLMM positions, fee claiming and monitoring
-- **Key traction:** Discord alerts wired, DLMM library upgraded to v1.9.10, price tracking operational
-- **Monetization path:** Free (basic rebalancing), Pro (auto-compounding + alerts), Enterprise (custom strategies)
-
-### Solana Arbitrage Bot — Cross-DEX Arbitrage
-- **Status:** Live / Beta
-- **What it does:** Monitors DEX pairs for price discrepancies, executes atomic arbitrage on Solana
-- **Key traction:** WebSocket + polling loop operational, structured JSONL logging, P&L aggregator built
-- **Monetization path:** Telegram bot subscription, managed fund
+### Howdy Morning — Morning Routine + Health Tracking
+- **Status:** In development
+- **What it does:** Morning routine app with Oura API integration, LLM scheduling, and habit tracking
+- **Key traction:** Oura integration prototyped, Supabase backend scaffolded
+- **Monetization path:** Freemium (basic tracking free), Pro (AI scheduling + insights)
 
 ---
 
@@ -66,9 +54,9 @@ Amanda occupies a rare intersection: deep traditional banking experience + real 
 
 Three converging trends make this the right moment:
 
-1. **Institutional DeFi adoption** — BlackRock, JPMorgan, and Stripe are all building on DeFi rails. The wall between TradFi and DeFi is crumbling.
-2. **Rate environment** — With savings rates still significantly below DeFi yields, millions of bank customers are leaving money on the table. Products that surface this gap are timing-perfect.
-3. **UX maturity** — Embedded wallets (Privy, Dynamic), account abstraction (ERC-4337), and fiat on-ramps (Stripe, MoonPay) have solved the hardest UX problems. The remaining gap is product design — not infrastructure.
+1. **Fintech adoption** — Traditional finance is increasingly adopting modern tooling. The wall between TradFi and fintech is crumbling.
+2. **Rate environment** — With savings rates varying significantly across institutions, millions of bank customers are leaving money on the table. Products that surface this gap are timing-perfect.
+3. **UX maturity** — Embedded wallets, account abstraction, and fiat on-ramps have solved the hardest UX problems. The remaining gap is product design — not infrastructure.
 
 ---
 
