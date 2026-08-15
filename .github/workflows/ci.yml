@@ -19,6 +19,8 @@ jobs:
           node-version: '20'
           cache: 'npm'
       - run: npm ci
+      - name: Generate search data
+        run: npm run generate-json --if-present
       - name: Typecheck (Astro)
         run: npm run check --if-present
       - name: Build (Astro)
