@@ -28,7 +28,7 @@
     "astro": "^7.2.2",
     "astro-auto-import": "^0.5.2",
     "astro-swiper": "^2.10.0",
-    "autoprefixer": "^10.5.0",
+    "autoprefixer": "^10.5.4",
     "date-fns": "^4.1.0",
     "disqus-react": "^1.1.7",
     "github-slugger": "^2.0.0",
