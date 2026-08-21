@@ -1,0 +1,203 @@
+---
+import Base from "@/layouts/Base.astro";
+import config from "@/config/config.json";
+
+const title = "Consulting";
+const description =
+  "Fractional CTO and fintech strategy consulting — advisory calls, project audits, and build sprints for startups, banks, and DeFi teams.";
+---
+
+<Base
+  title={title}
+  meta_title={`${title} — ${config.site.title}`}
+  description={description}
+>
+  <!-- JSON-LD Service schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Fractional CTO & Fintech Strategy Consulting",
+    "provider": {
+      "@type": "Person",
+      "name": "Amanda Daniels",
+      "url": `${config.site.base_url}/about`
+    },
+    "description": description,
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Advisory Call",
+        "price": "150.00",
+        "priceCurrency": "USD",
+        "unitText": "hour"
+      },
+      {
+        "@type": "Offer",
+        "name": "Project Audit",
+        "price": "500.00",
+        "priceCurrency": "USD"
+      },
+      {
+        "@type": "Offer",
+        "name": "Build Sprint",
+        "price": "2000.00",
+        "priceCurrency": "USD",
+        "unitText": "week"
+      }
+    ]
+  })} />
+
+  <!-- Hero -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="md:col-10 lg:col-8 text-center">
+          <h1 class="mb-4">
+            Fractional CTO / Fintech Strategy Consulting
+          </h1>
+          <p class="mb-8 text-lg text-muted">
+            I help startups, banks, and DeFi teams bridge the gap between
+            traditional finance and Web3 — with practical, hands-on guidance
+            from someone who works on both sides.
+          </p>
+          <a
+            href="https://calendly.com/adaniels-xyz/consulting"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary"
+          >
+            Book a Call
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Tiers -->
+  <section class="section-sm bg-theme-light dark:bg-darkmode-theme-light">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="lg:col-10">
+          <div class="row">
+            <!-- Advisory Call -->
+            <div class="mb-8 md:col-6 lg:col-4">
+              <div class="h-full rounded-lg border border-border bg-body p-8 dark:border-darkmode-border dark:bg-darkmode-body">
+                <h3 class="h4 mb-2">Advisory Call</h3>
+                <p class="mb-1 text-2xl font-bold text-primary">$150<span class="text-base font-normal text-muted">/hr</span></p>
+                <p class="mb-4 text-sm text-muted">
+                  One-off strategy sessions, technical deep-dives, or deal reviews.
+                </p>
+                <ul class="mb-6 space-y-2 text-sm">
+                  <li class="flex items-start gap-2">
+                    <span class="mt-0.5 text-primary">✓</span>
+                    <span>Architecture &amp; tech stack review</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="mt-0.5 text-primary">✓</span>
+                    <span>DeFi product strategy</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="mt-0.5 text-primary">✓</span>
+                    <span>Banking ↔ crypto integration advice</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="mt-0.5 text-primary">✓</span>
+                    <span>Investor pitch feedback</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Project Audit -->
+            <div class="mb-8 md:col-6 lg:col-4">
+              <div class="h-full rounded-lg border-2 border-primary bg-body p-8 dark:bg-darkmode-body">
+                <span class="mb-2 inline-block rounded-full bg-primary px-3 py-0.5 text-xs font-medium text-white">Popular</span>
+                <h3 class="h4 mb-2">Project Audit</h3>
+                <p class="mb-1 text-2xl font-bold text-primary">$500<span class="text-base font-normal text-muted"> flat</span></p>
+                <p class="mb-4 text-sm text-muted">
+                  A comprehensive review of your system, delivered as a written report with actionable recommendations.
+                </p>
+                <ul class="mb-6 space-y-2 text-sm">
+                  <li class="flex items-start gap-2">
+                    <span class="mt-0.5 text-primary">✓</span>
+                    <span>Smart contract architecture review</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="mt-0.5 text-primary">✓</span>
+                    <span>Security &amp; risk assessment</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="mt-0.5 text-primary">✓</span>
+                    <span>UI/UX flow analysis</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="mt-0.5 text-primary">✓</span>
+                    <span>Written report + 30-min walkthrough</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Build Sprint -->
+            <div class="mb-8 md:col-6 lg:col-4">
+              <div class="h-full rounded-lg border border-border bg-body p-8 dark:border-darkmode-border dark:bg-darkmode-body">
+                <h3 class="h4 mb-2">Build Sprint</h3>
+                <p class="mb-1 text-2xl font-bold text-primary">$2,000<span class="text-base font-normal text-muted">/wk</span></p>
+                <p class="mb-4 text-sm text-muted">
+                  I embed with your team to build, ship, and unblock — hands-on.
+                </p>
+                <ul class="mb-6 space-y-2 text-sm">
+                  <li class="flex items-start gap-2">
+                    <span class="mt-0.5 text-primary">✓</span>
+                    <span>Full-stack development (React, Node, Solana, EVM)</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="mt-0.5 text-primary">✓</span>
+                    <span>Smart contract development &amp; testing</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="mt-0.5 text-primary">✓</span>
+                    <span>CI/CD, infrastructure, and deployment</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="mt-0.5 text-primary">✓</span>
+                    <span>Daily async updates + end-of-week demo</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="row justify-center">
+        <div class="md:col-10 lg:col-8 text-center">
+          <h2 class="h3 mb-4">Ready to work together?</h2>
+          <p class="mb-6 text-muted">
+            Pick a time that works for you. We'll talk through your project and
+            figure out the right engagement.
+          </p>
+          <a
+            href="https://calendly.com/adaniels-xyz/consulting"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary"
+          >
+            Schedule on Calendly →
+          </a>
+          <p class="mt-4 text-sm text-muted">
+            Or email directly:{' '}
+            <a href="mailto:hello@adaniels.xyz" class="text-primary hover:underline">
+              hello@adaniels.xyz
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

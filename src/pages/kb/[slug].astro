@@ -1,5 +1,7 @@
 ---
+import AffiliateDisclaimer from "@/components/AffiliateDisclaimer.astro";
 import Base from "@/layouts/Base.astro";
+import NewsletterSignup from "@/components/NewsletterSignup.astro";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
@@ -92,6 +94,11 @@ const formattedDate = data.date
             </svg>
             Read full article on {data.source}
           </a>
+          <!-- Affiliate disclaimer -->
+          <AffiliateDisclaimer />
+
+          <!-- Newsletter signup -->
+          <NewsletterSignup />
         </div>
       </div>
     </div>

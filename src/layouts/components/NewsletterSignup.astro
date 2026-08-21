@@ -1,0 +1,29 @@
+---
+// Newsletter signup component for blog posts and KB articles
+---
+
+<div class="mt-12 rounded-lg border border-border bg-theme-light p-8 dark:border-darkmode-border dark:bg-darkmode-theme-light">
+  <h3 class="h4 mb-2">📬 Get the Digest</h3>
+  <p class="mb-4 text-muted">
+    Free weekly crypto/fintech digest. Paid monthly deep-dives coming soon.
+  </p>
+  <form
+    action="/api/newsletter"
+    method="POST"
+    class="flex flex-col sm:flex-row gap-3"
+  >
+    <input
+      type="email"
+      name="email"
+      placeholder="you@email.com"
+      required
+      class="form-input flex-1"
+    />
+    <button type="submit" class="btn btn-primary whitespace-nowrap">
+      Subscribe
+    </button>
+  </form>
+  <p class="mt-3 text-xs text-muted">
+    No spam, ever. Unsubscribe anytime.
+  </p>
+</div>

@@ -8,7 +8,9 @@ import similarItems from "@/lib/utils/similarItems";
 import { humanize, markdownify, slugify } from "@/lib/utils/textConverter";
 import { render } from "astro:content";
 import { FaRegClock, FaRegFolder, FaRegUserCircle } from "react-icons/fa";
+import AffiliateDisclaimer from "./components/AffiliateDisclaimer.astro";
 import ImageMod from "./components/ImageMod.astro";
+import NewsletterSignup from "./components/NewsletterSignup.astro";
 import config from "@/config/config.json";
 
 const COLLECTION_FOLDER = "blog";
@@ -110,6 +112,12 @@ const { title, description, author, categories, image, date, tags } = post.data;
             />
           </div>
         </div>
+        <!-- Affiliate disclaimer -->
+        <AffiliateDisclaimer />
+
+        <!-- Newsletter signup -->
+        <NewsletterSignup />
+
         <Disqus className="mt-20" client:only="react" />
       </article>
     </div>
